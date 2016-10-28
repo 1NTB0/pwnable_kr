@@ -1,1 +1,2 @@
-# pwnable_kr
+# pwnable.kr
+pwnable.kr challenges

@@ -1,0 +1,5 @@
+- need to input string of 20 bytes long
+- check_password() will split your string into 5 chunks, each containing 4 bytes in order
+- add those 5 chunks mathematically, and comapre it with hashcode=0x21dd09ec
+- notice: the input string are stored in reversed order and added that way in memory
+- A: ./col `python -c 'print "\x01"*16 + "\xe8\x05\xd9\x1d"'`

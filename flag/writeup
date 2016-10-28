@@ -1,0 +1,5 @@
+- strings flag to get all the strings contained in the packed binrary. Looking for clue.
+- find suspecious string, e.g. "upx packer..."
+- <upx -d flag> to unpack the binary
+- examine the code just like usualy, and the flag is manipulated right before strcpy(). 
+- A: UPX...? sounds like a delivery service :)

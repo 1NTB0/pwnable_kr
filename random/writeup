@@ -1,0 +1,8 @@
+- in this challenge, a "random" number is generated and XOR with user input. The result 
+	is compared with 0xdeadbeef and if they match, the program output flags. 
+- however in c program's rand(), if we do not provide it a seed it will always output 
+	the same set of random numbers and they do not change. In that case, the outcome of 
+	rand() will depend on the environment program runs on. 
+- since the rand() result is 0x6b8b4567 on the server, 0x6b8b4567 XOR 0xdeadbeef is 
+	0xb526fb88 = 3039230856. 
+- A: 3039230856

@@ -1,0 +1,13 @@
+- in welcome(), there's a scanf() that accepts string of 100 bytes (i.e. %100s)
+- in login() before checking, there're two scanf() calls that does not provide 
+	correct arguement to scanf(). If we lookup in manpage, we can find that scanf 
+	takes [format, address] as parameters while in this case, they misused the 
+	address parameter by having <mov    -0xc(%ebp),%edx> && <mov    -0x10(%ebp),%edx> 
+	instead of <lea   -0x10(%ebp),%edx>. 
+- The misuse causes us to be able to overwrite whatever's contained in -0x10(%ebp) 
+	with the scanf() for passcode1. 
+- Therefore, we use the scanf() for name to enter 100 bytes of string and have the 
+	address (i.e. GOT of printf()) embeded. Then for the scanf() for passcode1 we enter 
+	the integer (i.e. %d) to overwrite the GOT of printf() to be the address in the code 
+	where we call system('/bin/cat flag'). 
+- A: python -c "print 'A' * 96 + '\x00\xa0\x04\x08' + '\n' + '134514147' + '\n'" | ./passcode 

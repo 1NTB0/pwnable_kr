@@ -1,0 +1,3 @@
+- need to pass 99 arguments to "input" program, as the argc = 100 is checked. Only 
+	99 args because the program name is the first argument, stored in argv[0].
+- 
